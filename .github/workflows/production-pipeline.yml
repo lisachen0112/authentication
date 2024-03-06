@@ -11,6 +11,7 @@ on:
   workflow_dispatch:
 
 env:
+  AZURE_FUNCTIONAPP_NAME: 'accessable-maps-authenticator'
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.11' # set this to the python version to use (supports 3.6, 3.7, 3.8)
 
@@ -67,7 +68,7 @@ jobs:
         uses: Azure/functions-action@v1
         id: deploy-to-function
         with:
-          app-name: 'accessable-maps-authenticator'
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3203BA41348F45F3885179104E0CEDD8 }}
