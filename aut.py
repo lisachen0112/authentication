@@ -1,10 +1,10 @@
-import azure.functions as func
-import logging
-import json
-import os
-import psycopg2
-from psycopg2.extras import RealDictCursor
-from hashlib import sha256
+# import azure.functions as func
+# import logging
+# import json
+# import os
+# import psycopg2
+# from psycopg2.extras import RealDictCursor
+# from hashlib import sha256
 
 # app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
@@ -232,7 +232,7 @@ from hashlib import sha256
 #         conn.close()
 
 
-###
+# ##
 
 
 # @app.route(route="register", auth_level=func.AuthLevel.ANONYMOUS)
