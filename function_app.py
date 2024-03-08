@@ -1,7 +1,6 @@
 import azure.functions as func
 import logging
 import json
-import requests
 from hashlib import sha256
 
 
@@ -11,8 +10,8 @@ def simple_hash(password):
     """A simple hashing function for demonstration. In production, use more secure methods."""
     return sha256(password.encode('utf-8')).hexdigest()
 
-@app.route(route="login", auth_level=func.AuthLevel.ANONYMOUS)
-def login(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="register", auth_level=func.AuthLevel.ANONYMOUS)
+def register(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     # Determine action from the request path or parameters
@@ -60,9 +59,8 @@ def login(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse("Not Found", status_code=404)
 
 
-
-@app.route(route="accessableMapsAuth", auth_level=func.AuthLevel.ANONYMOUS)
-def accessableMapsAuth(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="login", auth_level=func.AuthLevel.ANONYMOUS)
+def login(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     name = req.params.get('name')
